@@ -6,7 +6,7 @@
         {
             "label": "Build Fortran",
             "type": "shell",
-            "command": "gfortran -fcheck=all ${fileBasename} -o ${fileBasenameNoExtension}.out && ./${fileBasenameNoExtension}.out",
+            "command": "gfortran -fcheck=all ${relativeFileDirname}/${fileBasename} -o ${relativeFileDirname}/${fileBasenameNoExtension}.out && ./${relativeFileDirname}/${fileBasenameNoExtension}.out",
             "args": [],
             "problemMatcher": [],
             "group": {
