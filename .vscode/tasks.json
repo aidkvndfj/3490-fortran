@@ -11,6 +11,17 @@
             "problemMatcher": [],
             "group": {
                 "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Build A1",
+            "type": "shell",
+            "command": "gfortran -fcheck=all -Wall solvejumble.f95 lexicon.f95",
+            "args": [],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
                 "isDefault": true
             }
         }
