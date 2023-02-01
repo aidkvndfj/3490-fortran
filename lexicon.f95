@@ -1,10 +1,11 @@
 MODULE lexicon
-
    ! The type for the linked list, holds a word and a pointer to the next item in the list
    TYPE dictWord
       CHARACTER(len=128) :: word
       TYPE(dictWord), POINTER :: next => null()
    END TYPE dictWord
+
+
 
    ! global head
    TYPE(dictWord), POINTER :: tmp, head
@@ -33,7 +34,6 @@ CONTAINS
          IF (Reason > 0)  THEN ! If > 0 then something went wrong
             WRITE(*,*) "broken"
          ELSE IF (Reason < 0) THEN ! if < 0 then we're at the end of the file
-            WRITE(*,*) "EOF"
             exit
          ELSE ! we read a line succesfully
             IF (head%word == "") THEN ! if the head is empty (first word), but the word in the head
