@@ -6,9 +6,13 @@ program solvejumble
    INTEGER :: N, I
    LOGICAL :: wordThere
 
-   WRITE(*,*) "GET TIME!!"
+   WRITE(*,*) "Building Lexicon..."
    CALL buildLexicon()
-   CALL findLexicon(wordThere)
+
+   WRITE(*,*) "FIND TIME!!"
+   CALL findLexicon("zyzomys", wordThere)
+
+   WRITE(*,*) wordThere
 
    WRITE(*,*) "INPUT TIME!!"
    CALL inputJumble(jumble, N)
