@@ -64,8 +64,6 @@ CONTAINS
             exit
          END IF
       END DO
-
-      ! WRITE(*,*) "ADD ", newNode%word, " ", head%word
       tempHead%next => newNode
    END SUBROUTINE
 
@@ -79,8 +77,6 @@ CONTAINS
       tmp => head
 
       DO
-         ! WRITE(*,*) tmp%word
-
          isNotNull = associated(tmp%next)
          IF (trim(tmp%word) == trim(toFind)) THEN
             isThere = .true.
