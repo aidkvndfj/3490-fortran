@@ -1,3 +1,5 @@
+! lexicon.f95
+
 MODULE lexicon
    ! The type for the linked list, holds a word and a pointer to the next item in the list
    TYPE dictWord
@@ -46,7 +48,7 @@ CONTAINS
          END IF
       END DO
 
-   END SUBROUTINE buildLexicon
+   END SUBROUTINE buildlexicon
 
    SUBROUTINE addNode(newNode)
       TYPE(dictWord), POINTER, INTENT(in) :: newNode
@@ -67,7 +69,7 @@ CONTAINS
       tempHead%next => newNode
    END SUBROUTINE
 
-   SUBROUTINE findLexicon(toFind, isThere)
+   SUBROUTINE findlexicon(toFind, isThere)
       ! Have 24 linked lists, and search a given list based on the first letter of the input word
       CHARACTER(len=*), INTENT(in) :: toFind
       LOGICAL, INTENT(out) :: isThere
@@ -90,7 +92,7 @@ CONTAINS
             exit
          END IF
       END DO
-   END SUBROUTINE findLexicon
+   END SUBROUTINE findlexicon
 
    SUBROUTINE freeLexicon()
       LOGICAL :: isNotNull
