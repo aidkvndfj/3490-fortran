@@ -7,14 +7,13 @@ MODULE lexicon
       TYPE(dictWord), POINTER :: next => null()
    END TYPE dictWord
 
-
-
    ! global head
    TYPE(dictWord), POINTER :: tmp, head
 
 CONTAINS
 
    SUBROUTINE buildlexicon()
+      IMPLICIT NONE
       CHARACTER(len=12) :: dictLocation = "./dict2.txt"
       CHARACTER(len=10) :: currWord
       INTEGER :: Reason
@@ -51,6 +50,7 @@ CONTAINS
    END SUBROUTINE buildlexicon
 
    SUBROUTINE addNode(newNode)
+      IMPLICIT NONE
       TYPE(dictWord), POINTER, INTENT(in) :: newNode
       TYPE(dictWord), POINTER :: tempHead
       LOGICAL :: isNotNull
@@ -68,6 +68,7 @@ CONTAINS
    END SUBROUTINE
 
    SUBROUTINE findlexicon(toFind, isThere)
+      IMPLICIT NONE
       ! Have 24 linked lists, and search a given list based on the first letter of the input word
       CHARACTER(len=*), INTENT(in) :: toFind
       LOGICAL, INTENT(out) :: isThere
@@ -91,6 +92,7 @@ CONTAINS
    END SUBROUTINE findlexicon
 
    SUBROUTINE freeLexicon()
+      IMPLICIT NONE
       LOGICAL :: isNotNull
 
       tmp => head%next
@@ -108,6 +110,7 @@ CONTAINS
    END SUBROUTINE freeLexicon
 
    SUBROUTINE toLower(input)
+      IMPLICIT NONE
       CHARACTER(len=*), INTENT(inout) :: input
       INTEGER :: i
 
