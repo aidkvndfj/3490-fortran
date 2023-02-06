@@ -32,12 +32,12 @@ CONTAINS
          READ(100,*,IOSTAT=Reason) currWord
          call toLower(currWord) ! make the current word lowercase
 
-         IF (Reason > 0)  THEN ! If > 0 then something went wrong
+         IF (Reason > 0)  THEN ! IF > 0 THEN something went wrong
             WRITE(*,*) "broken"
-         ELSE IF (Reason < 0) THEN ! if < 0 then we're at the end of the file
+         ELSE IF (Reason < 0) THEN ! IF < 0 THEN we're at the END of the file
             exit
          ELSE ! we read a line succesfully
-            IF (head%word == "") THEN ! if the head is empty (first word), but the word in the head
+            IF (head%word == "") THEN ! IF the head is empty (first word), but the word in the head
                head%word = currWord
             ELSE ! otherwise create a new dictWord and add it to the list
                ALLOCATE(tmp)
@@ -56,6 +56,7 @@ CONTAINS
       LOGICAL :: isNotNull
       tempHead => head
 
+      ! go through the linked list and add new node at the end
       DO
          isNotNull = associated(tempHead%next)
          IF (isNotNull) THEN
@@ -98,6 +99,7 @@ CONTAINS
       tmp => head%next
       DEALLOCATE(head)
 
+      !loop through the dictionary and free all the nodes
       DO
          isNotNull = associated(tmp%next)
          IF (isNotNuLL .eqv. .false.) THEN
@@ -114,6 +116,7 @@ CONTAINS
       CHARACTER(len=*), INTENT(inout) :: input
       INTEGER :: i
 
+      ! loop through the input and make all uppercase letter lowercase
       DO i = 1, len(input)
          IF (input(i:i) .GE. 'A' .AND. input(i:i) .LE. 'Z') THEN
             input(i:i) = achar(iachar(input(i:i)) + 32)
